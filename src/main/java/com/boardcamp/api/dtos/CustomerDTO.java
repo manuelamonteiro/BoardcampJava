@@ -13,7 +13,7 @@ public class CustomerDTO {
 	private String name;
 
 	@NotNull
-	@Size(max = 11, message = "Maximum length for name is 11 characters!")
+	@Size(max = 11, message = "Maximum length for cpf is 11 characters!")
 	private String cpf;
 
 }
