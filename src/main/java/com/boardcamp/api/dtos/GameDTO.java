@@ -1,7 +1,9 @@
 package com.boardcamp.api.dtos;
 
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,18 +12,18 @@ import lombok.Data;
 @AllArgsConstructor
 public class GameDTO {
 
-	@NotNull
+	@NotBlank
 	@Size(max = 180, message = "Maximum length for name is 180 characters!")
 	private String name;
 
-	@NotNull
+	@NotBlank
 	private String image;
 
 	@NotNull
-	@Min(value = 1, message = "Stock total must be at least 1")
+	@PositiveOrZero(message = "Must be equal to or greater than 0!")
 	private Long stockTotal;
 
 	@NotNull
-	@Min(value = 1, message = "Price per day must be at least 1")
+	@Positive(message = "Must be greater than 0!")
 	private Long pricePerDay;
 }

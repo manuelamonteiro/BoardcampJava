@@ -1,6 +1,6 @@
 package com.boardcamp.api.dtos;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +9,11 @@ import lombok.Data;
 @AllArgsConstructor
 public class CustomerDTO {
 
-	@NotNull
+	@NotBlank
 	private String name;
 
-	@NotNull
-	@Size(max = 11, message = "Maximum length for cpf is 11 characters!")
+	@NotBlank
+	@Size(min = 11, max = 11, message = "The length must be 11 characters!")
 	private String cpf;
 
 }
