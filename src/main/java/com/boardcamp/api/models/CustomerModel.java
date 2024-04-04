@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // Indica ao banco que isso é uma entidade a ser mapeada
-@Table(name = "tb_customers") // Permite escolher o nome da tabela
+@Entity
+@Table(name = "tb_customers")
 public class CustomerModel {
 
 	public CustomerModel(CustomerDTO dto) {
@@ -25,11 +25,11 @@ public class CustomerModel {
 		this.cpf = dto.getCpf();
 	}
 
-	@Id // Identifica que é o id, a chave primária da tabela
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // Estratégia gerar IDs
+	@Id 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE) 
 	private Long id;
 
-	@Column(nullable = false) // Coluna da tabela + constraints
+	@Column(nullable = false) 
 	private String name;
 
 	@Column(length = 11, nullable = false)

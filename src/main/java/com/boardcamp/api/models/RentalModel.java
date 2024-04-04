@@ -21,25 +21,25 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // Indica ao banco que isso é uma entidade a ser mapeada
-@Table(name = "tb_rentals") // Permite escolher o nome da tabela
+@Entity 
+@Table(name = "tb_rentals") 
 public class RentalModel {
 
 	public RentalModel(RentalDTO dto, CustomerModel customer, GameModel game){
 		this.daysRented = dto.getDaysRented();
-		this.rentDate = LocalDate.now(); // Definindo a data atual como rentDate
-		this.returnDate = null; // Definindo returnDate como null
-		this.originalPrice = game.getPricePerDay() * dto.getDaysRented(); // Definindo originalPrice como 0
-		this.delayFee = 0L; // Definindo delayFee como 0
+		this.rentDate = LocalDate.now(); 
+		this.returnDate = null;
+		this.originalPrice = game.getPricePerDay() * dto.getDaysRented(); 
+		this.delayFee = 0L; 
 		this.customer = customer;
 		this.game = game;
 	}
 
-	@Id // Identifica que é o id, a chave primária da tabela
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // Estratégia gerar IDs
+	@Id 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE) 
 	private Long id;
 
-	@Temporal(TemporalType.DATE) // Usado para mapear campos de data
+	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
 	private LocalDate rentDate;
 

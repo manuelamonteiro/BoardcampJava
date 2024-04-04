@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-	@ExceptionHandler({ GameConflictException.class })
-	public ResponseEntity<String> handleGameNameConflict(GameConflictException exception) {
-		return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
-	}
 
 	@ExceptionHandler({ CustomerConflictException.class })
 	public ResponseEntity<String> handleCustomerNameConflict(CustomerConflictException exception) {
@@ -22,6 +18,11 @@ public class GlobalExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
 	}
 
+	@ExceptionHandler({ GameConflictException.class })
+	public ResponseEntity<String> handleGameNameConflict(GameConflictException exception) {
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
+	}
+
 	@ExceptionHandler({ GameNotFoundException.class })
 	public ResponseEntity<String> handleGameNotFound(GameNotFoundException exception) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
@@ -30,5 +31,10 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler({ RentalUnprocessableEntityException.class })
 	public ResponseEntity<String> handleRentalUnprocessableEntity(RentalUnprocessableEntityException exception) {
 		return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+	}
+
+	@ExceptionHandler({ RentalNotFoundException.class })
+	public ResponseEntity<String> handleRentalNotFound(RentalNotFoundException exception) {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
 	}
 }

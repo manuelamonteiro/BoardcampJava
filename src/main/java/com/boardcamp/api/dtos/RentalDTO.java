@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data // getters e setters
+@Data
 @AllArgsConstructor
 public class RentalDTO {
 

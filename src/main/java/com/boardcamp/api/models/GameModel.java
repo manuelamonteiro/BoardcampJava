@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // Indica ao banco que isso é uma entidade a ser mapeada
-@Table(name = "tb_games") // Permite escolher o nome da tabela
+@Entity 
+@Table(name = "tb_games") 
 public class GameModel {
 
 	public GameModel(GameDTO dto) {
@@ -27,11 +27,11 @@ public class GameModel {
 		this.pricePerDay = dto.getPricePerDay();
 	}
 
-	@Id // Identifica que é o id, a chave primária da tabela
-	@GeneratedValue(strategy = GenerationType.SEQUENCE) // Estratégia gerar IDs
+	@Id 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE) 
 	private Long id;
 
-	@Column(length = 180, nullable = false) // Coluna da tabela + constraints
+	@Column(length = 180, nullable = false) 
 	private String name;
 
 	@Column(nullable = false)

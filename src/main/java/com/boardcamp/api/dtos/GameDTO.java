@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data // getters e setters
+@Data
 @AllArgsConstructor
 public class GameDTO {
 
